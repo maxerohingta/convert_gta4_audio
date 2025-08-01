@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var viewModel = ViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button(
+            action: {
+                viewModel.doTheHarlemShake()
+            },
+            label: {
+                Text("Пыщь")
+                    .font(.title)
+                    .padding(40)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 10)
+            }
+        )
+        .onAppear {
+            viewModel.doTheHarlemShake()
         }
-        .padding()
     }
 }
 
